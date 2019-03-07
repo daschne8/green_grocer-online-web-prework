@@ -38,6 +38,7 @@ end
 def apply_clearance(cart)
   cart.each do |item,item_data|
     if item_data[:clearance]
+      binding.pry
       item_data[:price] *= 0.80
     end
   end
@@ -57,7 +58,4 @@ def item_coupon
   return item,coupon
 end
 
-
-
-binding.pry
 puts "pry out"
