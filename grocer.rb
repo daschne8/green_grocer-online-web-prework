@@ -13,9 +13,9 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  if !coupons.kind_of?(Array)
-    coupons = [coupons]
-  end
+  # if !coupons.kind_of?(Array)
+  #   coupons = [coupons]
+  # end
 
   coupons.each do |coupon|
     item_name = coupon[:item]
