@@ -16,6 +16,7 @@ def apply_coupons(cart, coupons)
   if !coupons.kind_of?(Array)
     coupons = [coupons]
   end
+  
   coupons.each do |coupon|
     item_name = coupon[:item]
     cart_item_hash = cart[item_name]
@@ -45,13 +46,10 @@ end
 
 def item_coupon
   item = {
-    "AVOCADO" => {:price => 3.0, :clearance => true, :count => 3},
-    "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
+    "AVOCADO" => {:price => 3.0, :clearance => true, :count => 2}
   }
   coupon = [
-    {:item => "AVOCADO", :num => 2, :cost => 5.00},
-    {:item => "BEER", :num => 2, :cost => 20.00},
-    {:item => "CHEESE", :num => 3, :cost => 15.00}
+    {:item => "AVOCADO", :num => 2, :cost => 5.00}
   ]
   return item,coupon
 end
