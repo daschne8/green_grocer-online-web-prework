@@ -24,11 +24,12 @@ def apply_coupons(cart, coupons)
         cart_item_hash[:count] -= coupon[:num]
       end
       item_name += " W/COUPON"
-      cart[item_name] = {
+      cart[item_name] ||= {
         price:coupon[:cost],
         clearance:cart_item_hash[:clearance],
-        count:1
+        count:-0
       }
+      cart[item_name][:count] += 1
     end
   end
     return cart
