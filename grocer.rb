@@ -52,7 +52,8 @@ def item_coupon
   ]
   return item,coupon
 end
-item,coupon = item_coupon
-applied = apply_coupons(item,coupon)
+
+
+
 binding.pry
 puts "pry out"
