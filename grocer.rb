@@ -16,7 +16,7 @@ def apply_coupons(cart, coupons)
   if !coupons.kind_of?(Array)
     coupons = [coupons]
   end
-  
+
   coupons.each do |coupon|
     item_name = coupon[:item]
     cart_item_hash = cart[item_name]
