@@ -20,18 +20,20 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     item_name = coupon[:item]
     cart_item_hash = cart[item_name]
-    if cart_item_hash[:count] - coupon[:num] <= 0
-      cart_item_hash[:count] = 0
-      #cart.delete(item_name)
-    else
-      cart_item_hash[:count] -= coupon[:num]
+    if cart.has_key?(item_name)
+      if cart_item_hash[:count] - coupon[:num] <= 0
+        cart_item_hash[:count] = 0
+        #cart.delete(item_name)
+      else
+        cart_item_hash[:count] -= coupon[:num]
+      end
+      item_name += " W/COUPON"
+      cart[item_name] = {
+        price:coupon[:cost],
+        clearance:cart_item_hash[:clearance],
+        count:1
+      }
     end
-    item_name += " W/COUPON"
-    cart[item_name] = {
-      price:coupon[:cost],
-      clearance:cart_item_hash[:clearance],
-      count:1
-    }
   end
     return cart
 end
